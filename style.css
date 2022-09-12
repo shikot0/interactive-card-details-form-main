@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Space Grotesk'; 
+    font-weight: 500; 
+    margin: 0;
+}
+body {
+    margin: 0; 
+}
+main {
+    height: 100vh;
+    display: flex;
+}
+#background {
+    width: 30%;
+    height: 100%;
+    background: url(images/bg-main-desktop.png);
+    background-size: cover; 
+}
+/* #card-front, #card-back {
+    width: 30vw;    
+    min-width: 370px;   
+} */
+#front-card-section , #reverse-card-section {
+    width: 30vw;    
+    min-width: 370px;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    aspect-ratio: 447/245;    
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));    
+    pointer-events: none; 
+    animation: slide-in .6s cubic-bezier(.68,-0.55,.27,1.55) 1 forwards;
+}
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+#card-front, #card-back { 
+    width: 100%;      
+}
+#front-card-section {
+    position: absolute;
+    top: 10%; 
+    left: 7%;  
+    color: white; 
+}
+#card-logo {
+    position: absolute;
+    top: 8%;
+    left: 6%; 
+} 
+#card-number-output {
+    position: absolute;
+    left: 6%;     
+    bottom: 30%;    
+    font-size: 1.6rem;  
+    letter-spacing: 3px;
+    width: 100%; 
+} 
+#cardholder-name-output {
+    position: absolute;
+    left: 6%; 
+    bottom: 10%; 
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    font-size: .9rem; 
+}  
+#expiry-date-output {
+    position: absolute;
+    right: 6%;
+    bottom: 10%;  
+    letter-spacing: 1px; 
+    font-size: .9rem; 
+}
+#reverse-card-section { 
+    position: absolute; 
+    top: 50%;  
+    left: 12%;   
+    color: white; 
+}
+#cvc-output {
+    position: absolute;
+    top: 43.5%;   
+    right: 12%;
+    font-size: 1rem;
+    letter-spacing: 1px;  
+}
+#sign-up-section { 
+    width: 70%; 
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    position: relative; 
+}
+form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px;  
+    width: 350px;  
+}
+form#hidden {
+    display: none;
+}
+label {
+    width: 100%;  
+    color: hsl(278, 68%, 11%);  
+    position: relative;
+}
+label p {
+    text-transform: uppercase; 
+    font-size: .75rem; 
+    margin-bottom: 5px; 
+}
+label::before {
+    content: "Can't be blank"; 
+    font-size: .6rem;
+    color: hsl(0, 100%, 66%);
+    position: absolute; 
+    left: 2%;
+    bottom: -22%;  
+    visibility: hidden;
+}
+label#blank-value::before {
+    visibility: visible;
+}
+label::after {
+    content: 'Wrong format, numbers only';
+    font-size: .6rem;
+    color: hsl(0, 100%, 66%);
+    position: absolute; 
+    left: 2%;
+    bottom: -22%;  
+    visibility: hidden;
+}
+label#invalid-input::after {
+    visibility: visible; 
+}
+input { 
+    width: 100%;  
+    padding: 10px 0 10px 10px;   
+    border-radius: 8px;  
+    border: 1px solid hsl(270, 3%, 87%); 
+    position: relative; 
+    color: hsl(278, 68%, 11%);
+    transition: .2s; 
+} 
+input::placeholder {
+    color: hsl(279, 6%, 55%);  
+}   
+input#invalid {
+    border: 1px solid hsl(0, 100%, 66%);
+} 
+input:focus { 
+    outline: none;
+    background: linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+    border: 1px solid transparent; 
+}
+#bottom-section {
+    display: flex;
+    gap: 5%;  
+}
+label[for$= "expiry-month-input"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: .2fr 1fr; 
+    gap: 0 7px;
+}
+label[for$= "expiry-month-input"] p {
+    grid-column-start: 1; 
+    grid-column-end: 3;
+}
+#expiry-month-input {
+    grid-column-start: 1; 
+    grid-column-end: 2; 
+    grid-row-start: 2;
+    grid-row-end: 3;  
+}
+#expiry-year-input {
+    grid-column-start: 2;
+    grid-column-end: 3; 
+    grid-row-start: 2;
+    grid-row-end: 3;  
+}
+#submitBtn {
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: .3s;   
+}
+#submitBtn:hover { 
+    background: hsl(279, 6%, 55%);
+}
+#completion-message { 
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 350px;  
+    visibility: hidden; 
+    opacity: 0; 
+    transition: 0s;  
+}
+#completion-message.visible {
+    transition: opacity .3s, visibility 0s;  
+    visibility: visible; 
+    opacity: 1;
+}
+#completion-message img {
+    width: 60px; 
+}
+#completion-message h2 {
+    text-transform: uppercase;
+    margin: 20px 0 5px; 
+}
+#completion-message p {
+    color: hsl(279, 6%, 55%); 
+    font-size: .9rem; 
+    margin-bottom: 20px; 
+}
+#continue-button {
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    background: hsl(278, 68%, 11%);
+    border: none;
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: .3s;
+}
+#continue-button:hover {
+    background: hsl(279, 6%, 55%); 
+}
+@media screen and (max-width: 1060px) {
+    #front-card-section, #reverse-card-section {  
+        min-width: 340px;   
+    }
+    #front-card-section {
+        top: 18%;  
+        left: 5%;    
+    }
+    #card-logo {
+        width: 65px;  
+    } 
+    #card-number-output {
+        font-size: 1.4rem;   
+    }   
+    #reverse-card-section { 
+        bottom: 8%;  
+        left: 5%;   
+    }
+    #cvc-output {
+        top: 50%;   
+        transform: translateY(-50%); 
+        font-size: .9rem;  
+    }
+    #sign-up-section {
+        justify-content: flex-end;  
+        padding: 0 6.5% 0 0;  
+    }
+    form {
+        width: 260px;   
+    }
+}
+@media screen and (max-width: 700px) {
+    main {
+        flex-direction: column;
+    }
+    #background {
+        width: 100%;
+        height: 30%;
+        background: url(images/bg-main-mobile.png);
+        background-size: cover;  
+    } 
+    #front-card-section , #reverse-card-section {
+        width: 50vw;     
+        min-width: 290px;  
+        filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));  
+    }
+    #front-card-section {
+        top: 18.5%;      
+        left: 8%;     
+        z-index: 2; 
+    }
+    #card-logo {
+        width: 45px;   
+    } 
+    #card-number-output {
+        font-size: 1rem;   
+        letter-spacing: 2px;
+    }  
+    #cardholder-name-output {
+        font-size: .8rem; 
+    }  
+    #expiry-date-output {
+        font-size: .8rem; 
+    } 
+    #reverse-card-section { 
+        top: 6%;           
+        left: initial; 
+        right: 8%;      
+    }
+    #cvc-output {
+        top: 50%;  
+        transform: translateY(-50%); 
+        font-size: .8rem;  
+    }
+    #sign-up-section { 
+        width: 100%; 
+        height: 70%;
+        justify-content: center;  
+        align-items: center;  
+        padding: 25px 0 0; 
+    } 
+    form {
+        width: 80vw; 
+    }
+}

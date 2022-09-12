@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css"> 
+  <script src="script.js" defer></script>
+  <title>Frontend Mentor | Interactive sign-up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="background"></section>
+    <div id="front-card-section">
+      <img src="images/card-logo.svg" alt="card logo" id="card-logo">
+      <p id="card-number-output">0000 0000 0000 0000</p>
+      <p id="cardholder-name-output">Jane Appleseed</p>
+      <p id="expiry-date-output">00/00</p> 
+      <img src="images/bg-card-front.png" alt="card-front" id="card-front">
+    </div>
+    <div id="reverse-card-section">
+      <p id="cvc-output">000</p>
+      <img src="images/bg-card-back.png" alt="card-back" id="card-back">  
+    </div>
+    <section id="sign-up-section">  
+      <form>  
+        <label for="cardholder-name-input"><p>Cardholder Name</p>
+          <input required id="cardholder-name-input" title="This field is required" type="text" placeholder="e.g. Jane Appleseed" maxlength="30">
+        </label>   
+ 
+        <label for="card-number-input"><p>Card Number</p>
+          <input required id="card-number-input" title="This field is required" type="text"  placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
+        </label>
+         
+ 
+        <div id="bottom-section">
+          <label for="expiry-month-input"><p>Exp. Date (MM/YY)</p>  
+            <input required id="expiry-month-input" title="This field is required" type="text" placeholder="MM" maxlength="2" >
+            <input required id="expiry-year-input" title="This field is required" type="text" placeholder="YY" maxlength="2" > 
+          </label>
+  
+          <label for="cvc-input"><p>CVC</p>
+            <input required id="cvc-input" title="This field is required" type="text" placeholder="e.g. 123" maxlength="3" >   
+          </label>
+        </div> 
+
+        <button id="submitBtn">Confirm</button>
+      </form>  
+      <div id="completion-message">  
+        <img src="images/icon-complete.svg" alt="">
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
+        <button id="continue-button">Continue</button>
+      </div>
+    </section>
+
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
