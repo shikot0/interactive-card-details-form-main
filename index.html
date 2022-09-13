@@ -29,29 +29,29 @@
       <p id="cvc-output">000</p>
       <img src="images/bg-card-back.png" alt="card-back" id="card-back">  
     </div>
-    <section id="sign-up-section">  
+    <section id="sign-up-section">    
       <form>  
         <label for="cardholder-name-input"><p>Cardholder Name</p>
-          <input required id="cardholder-name-input" title="This field is required" type="text" placeholder="e.g. Jane Appleseed" maxlength="30">
+          <input pattern="[A-Za-z\s]{1,}" required id="cardholder-name-input" title="This field is required" type="text" placeholder="e.g. Jane Appleseed" maxlength="30">
         </label>   
- 
+  
         <label for="card-number-input"><p>Card Number</p>
-          <input required id="card-number-input" title="This field is required" type="text"  placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
-        </label>
-         
+          <input pattern="[0-9]{13,}" required id="card-number-input" title="This field is required" type="text"  placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
+        </label>  
+           
  
         <div id="bottom-section">
           <label for="expiry-month-input"><p>Exp. Date (MM/YY)</p>  
-            <input required id="expiry-month-input" title="This field is required" type="text" placeholder="MM" maxlength="2" >
-            <input required id="expiry-year-input" title="This field is required" type="text" placeholder="YY" maxlength="2" > 
+            <input pattern="[0-9]{2}" required id="expiry-month-input" title="This field is required" type="text" placeholder="MM" maxlength="2" >
+            <input pattern="[0-9]{2}" required id="expiry-year-input" title="This field is required" type="text" placeholder="YY" maxlength="2" > 
           </label>
   
-          <label for="cvc-input"><p>CVC</p>
-            <input required id="cvc-input" title="This field is required" type="text" placeholder="e.g. 123" maxlength="3" >   
+          <label for="cvc-input"><p>CVC</p> 
+            <input pattern="[0-9]{3}" required id="cvc-input" title="This field is required" type="text" placeholder="e.g. 123" maxlength="3" >   
           </label>
         </div> 
 
-        <button id="submitBtn">Confirm</button>
+        <button type="submit" id="submitBtn">Confirm</button>
       </form>  
       <div id="completion-message">  
         <img src="images/icon-complete.svg" alt="">

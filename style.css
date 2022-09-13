@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 * {
     box-sizing: border-box;
     font-family: 'Space Grotesk'; 
@@ -95,7 +96,7 @@ main {
 }
 #cvc-output {
     position: absolute;
-    top: 43.5%;   
+    top: 44%;    
     right: 12%;
     font-size: 1rem;
     letter-spacing: 1px;  
@@ -148,6 +149,15 @@ label::after {
     left: 2%;
     bottom: -22%;  
     visibility: hidden;
+}
+label:first-child::after {
+    content: 'Wrong format, letters only'; 
+}
+label:nth-child(2):before {   
+    content: "Can't be blank"; 
+}
+label:nth-child(2):after { 
+    content: 'Invalid input (13 numbers are required)'; 
 }
 label#invalid-input::after {
     visibility: visible; 
