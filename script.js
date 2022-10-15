@@ -54,7 +54,6 @@ expiryYearInput.addEventListener('input', () => {
     }else if(expiryMonthInput.value != '' && expiryYearInput.value != ''){
         expiryDateOutput.innerText = `${expiryMonthInput.value}/${expiryYearInput.value}`; 
     } 
-    console.log(expiryMonthInput.value != '' && expiryYearInput.value != '')
 });
 
 cvcInput.addEventListener('input', () => {
